@@ -12,7 +12,7 @@ defmodule RepetoWeb.RessourcesLive do
       phx-value-tab={@tab}
       class={[
         "flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-bold shrink-0 transition-all cursor-pointer border",
-        @active && "bg-indigo-600 text-white border-indigo-600 shadow-sm" || "bg-white text-slate-600 border-slate-200/80 hover:bg-slate-50"
+        @active && "bg-indigo-600 text-white border-indigo-600 shadow-sm" || "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border-slate-200/80 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/80"
       ]}
     >
       <.icon name={@icon} class="w-4 h-4" />
@@ -23,9 +23,9 @@ defmodule RepetoWeb.RessourcesLive do
 
   def resource_card(assigns) do
     ~H"""
-    <div class="bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden flex flex-col justify-between hover:shadow-md transition-all group">
+    <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-2xs overflow-hidden flex flex-col justify-between hover:shadow-md dark:hover:border-slate-700 transition-all group">
       <div>
-        <div class="relative h-40 bg-slate-100 overflow-hidden">
+        <div class="relative h-40 bg-slate-100 dark:bg-slate-800 overflow-hidden">
           <img src={@preview_image} alt={@title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
 
           <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
@@ -48,23 +48,23 @@ defmodule RepetoWeb.RessourcesLive do
           <% end %>
 
           <div class="absolute bottom-3 left-3 flex items-center gap-2">
-            <img src={@author_avatar} alt={@author} class="w-6 h-6 rounded-full border border-white/80 object-cover" />
+            <img src={@author_avatar} alt={@author} class="w-6 h-6 rounded-full border border-white/80 dark:border-slate-800 object-cover" />
             <span class="text-[11px] font-bold text-white drop-shadow-sm">{@author}</span>
           </div>
         </div>
 
         <div class="p-4 space-y-3">
-          <h3 class="text-xs font-black text-slate-900 group-hover:text-indigo-600 transition-colors line-clamp-1">
+          <h3 class="text-xs font-black text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-1">
             {@title}
           </h3>
 
           <%= if assigns[:description] do %>
-            <p class="text-[11px] text-slate-500 line-clamp-2 leading-relaxed">{@description}</p>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed">{@description}</p>
           <% end %>
 
           <div class="flex flex-wrap gap-1.5 pt-0.5">
             <%= for t <- @tags do %>
-              <span class="text-[10px] font-medium text-slate-600 bg-slate-100 px-2 py-0.5 rounded-md">
+              <span class="text-[10px] font-medium text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-md">
                 <%= t %>
               </span>
             <% end %>
@@ -72,18 +72,18 @@ defmodule RepetoWeb.RessourcesLive do
         </div>
       </div>
 
-      <div class="px-4 py-3 bg-slate-50/70 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
+      <div class="px-4 py-3 bg-slate-50/70 dark:bg-slate-900/50 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 font-medium">
         <div class="flex items-center gap-3">
           <span class="flex items-center gap-1">
-            <.icon name="hero-arrow-down-tray" class="w-3.5 h-3.5 text-slate-400" />
+            <.icon name="hero-arrow-down-tray" class="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
             {@downloads}
           </span>
           <span class="flex items-center gap-1">
-            <.icon name="hero-eye" class="w-3.5 h-3.5 text-slate-400" />
+            <.icon name="hero-eye" class="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
             {@views}
           </span>
         </div>
-        <button class="w-7 h-7 rounded-lg hover:bg-slate-200/60 flex items-center justify-center text-slate-400 hover:text-indigo-600 transition-colors cursor-pointer">
+        <button class="w-7 h-7 rounded-lg hover:bg-slate-200/60 dark:hover:bg-slate-800 flex items-center justify-center text-slate-400 dark:text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer">
           <.icon name="hero-bookmark" class="w-4 h-4" />
         </button>
       </div>
@@ -93,19 +93,19 @@ defmodule RepetoWeb.RessourcesLive do
 
   def favorite_item(assigns) do
     ~H"""
-    <div class="flex items-center justify-between p-2 rounded-xl hover:bg-slate-50 transition-colors group cursor-pointer">
+    <div class="flex items-center justify-between p-2 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors group cursor-pointer">
       <div class="flex items-center gap-2.5">
         <div class={"w-8 h-8 #{@icon_bg} rounded-xl flex items-center justify-center shrink-0"}>
           <.icon name={@icon} class="w-4 h-4" />
         </div>
         <div>
-          <h4 class="text-xs font-bold text-slate-900 group-hover:text-indigo-600 transition-colors line-clamp-1">
+          <h4 class="text-xs font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-1">
             {@title}
           </h4>
-          <p class="text-[10px] text-slate-400">{@subtitle}</p>
+          <p class="text-[10px] text-slate-400 dark:text-slate-500">{@subtitle}</p>
         </div>
       </div>
-      <button class="text-slate-300 group-hover:text-indigo-600 transition-colors">
+      <button class="text-slate-300 dark:text-slate-600 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
         <.icon name="hero-bookmark-solid" class="w-4 h-4" />
       </button>
     </div>
@@ -114,20 +114,20 @@ defmodule RepetoWeb.RessourcesLive do
 
   def popular_item(assigns) do
     ~H"""
-    <div class="flex items-center justify-between gap-3 p-2 rounded-xl hover:bg-slate-50 transition-colors group cursor-pointer">
+    <div class="flex items-center justify-between gap-3 p-2 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors group cursor-pointer">
       <div class="flex items-center gap-3">
-        <span class="text-xs font-black text-slate-400 w-3 text-center">{@rank}</span>
-        <img src={@img} alt="" class="w-9 h-9 rounded-xl object-cover shrink-0 border border-slate-200" />
+        <span class="text-xs font-black text-slate-400 dark:text-slate-500 w-3 text-center">{@rank}</span>
+        <img src={@img} alt="" class="w-9 h-9 rounded-xl object-cover shrink-0 border border-slate-200 dark:border-slate-800" />
         <div class="space-y-0.5">
-          <h4 class="text-xs font-bold text-slate-900 group-hover:text-indigo-600 transition-colors line-clamp-1">
+          <h4 class="text-xs font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-1">
             {@title}
           </h4>
-          <p class="text-[10px] text-slate-400">{@category}</p>
+          <p class="text-[10px] text-slate-400 dark:text-slate-500">{@category}</p>
         </div>
       </div>
       <div class="text-right shrink-0">
-        <span class="text-[10px] font-bold text-slate-700 flex items-center gap-1 justify-end">
-          <.icon name="hero-arrow-down-tray" class="w-3 h-3 text-slate-400" /> {@downloads}
+        <span class="text-[10px] font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1 justify-end">
+          <.icon name="hero-arrow-down-tray" class="w-3 h-3 text-slate-400 dark:text-slate-500" /> {@downloads}
         </span>
       </div>
     </div>
@@ -183,19 +183,19 @@ defmodule RepetoWeb.RessourcesLive do
   def render(assigns) do
     ~H"""
     <Layouts.app flash={@flash} current_scope={assigns[:current_scope]} active_nav={@active_nav}>
-      <div class="flex-1 flex overflow-hidden h-[calc(100vh-4rem)] bg-slate-50/50">
+      <div class="flex-1 flex overflow-hidden h-[calc(100vh-4rem)] bg-slate-50/50 dark:bg-slate-950">
 
         <!-- Contenu Central -->
-        <main class="flex-1 p-6 overflow-y-auto space-y-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        <main class="flex-1 p-4 sm:p-6 overflow-y-auto space-y-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
 
           <!-- Bannière supérieure Ressources -->
-          <div class="relative overflow-hidden bg-gradient-to-r from-indigo-900 via-indigo-800 to-indigo-950 p-8 rounded-3xl text-white shadow-lg flex flex-col justify-between space-y-6">
+          <div class="relative overflow-hidden bg-gradient-to-r from-indigo-900 via-indigo-800 to-indigo-950 p-6 sm:p-8 rounded-3xl text-white shadow-lg flex flex-col justify-between space-y-6">
             <div class="absolute -right-10 -bottom-10 opacity-10 pointer-events-none">
               <.icon name="hero-folder" class="w-72 h-72" />
             </div>
 
             <div class="max-w-xl space-y-2 relative z-10">
-              <h1 class="text-2xl font-black tracking-tight">Ressources</h1>
+              <h1 class="text-xl sm:text-2xl font-black tracking-tight">Ressources</h1>
               <p class="text-xs text-indigo-200 leading-relaxed">
                 Des milliers de documents, fiches, annales et supports pour t'aider à réussir.
               </p>
@@ -212,7 +212,7 @@ defmodule RepetoWeb.RessourcesLive do
                 phx-keyup="search"
                 phx-debounce="300"
                 placeholder="Rechercher une ressource..."
-                class="w-full bg-white text-slate-900 placeholder-slate-400 text-xs rounded-2xl pl-11 pr-4 py-3.5 shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 font-medium"
+                class="w-full bg-white dark:bg-slate-900 text-slate-900 dark:text-white placeholder-slate-400 text-xs rounded-2xl pl-11 pr-4 py-3.5 shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 font-medium border border-transparent dark:border-slate-800"
               />
             </div>
           </div>
@@ -229,10 +229,10 @@ defmodule RepetoWeb.RessourcesLive do
           </div>
 
           <!-- Filtres déroulants dynamiques -->
-          <form phx-change="filter_changed" class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white p-4 rounded-2xl border border-slate-200/85 shadow-2xs">
+          <form phx-change="filter_changed" class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200/85 dark:border-slate-800 shadow-2xs">
             <div class="flex flex-wrap items-center gap-3">
-              <div class="relative">
-                <select name="subject" class="bg-slate-50 border border-slate-200 text-slate-700 text-xs rounded-xl px-3.5 py-2.5 font-medium focus:outline-none focus:ring-1 focus:ring-indigo-500 cursor-pointer">
+              <div class="relative w-full sm:w-auto">
+                <select name="subject" class="w-full sm:w-auto bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-xs rounded-xl px-3.5 py-2.5 font-medium focus:outline-none focus:ring-1 focus:ring-indigo-500 cursor-pointer">
                   <option selected={@selected_subject == "Toutes les matières"}>Toutes les matières</option>
                   <option selected={@selected_subject == "Mathématiques"}>Mathématiques</option>
                   <option selected={@selected_subject == "Physique"}>Physique</option>
@@ -241,8 +241,8 @@ defmodule RepetoWeb.RessourcesLive do
                 </select>
               </div>
 
-              <div class="relative">
-                <select name="level" class="bg-slate-50 border border-slate-200 text-slate-700 text-xs rounded-xl px-3.5 py-2.5 font-medium focus:outline-none focus:ring-1 focus:ring-indigo-500 cursor-pointer">
+              <div class="relative w-full sm:w-auto">
+                <select name="level" class="w-full sm:w-auto bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-xs rounded-xl px-3.5 py-2.5 font-medium focus:outline-none focus:ring-1 focus:ring-indigo-500 cursor-pointer">
                   <option selected={@selected_level == "Tous les niveaux"}>Tous les niveaux</option>
                   <option selected={@selected_level == "Terminale C"}>Terminale C</option>
                   <option selected={@selected_level == "Première C"}>Première C</option>
@@ -250,8 +250,8 @@ defmodule RepetoWeb.RessourcesLive do
                 </select>
               </div>
 
-              <div class="relative">
-                <select name="sort" class="bg-slate-50 border border-slate-200 text-slate-700 text-xs rounded-xl px-3.5 py-2.5 font-medium focus:outline-none focus:ring-1 focus:ring-indigo-500 cursor-pointer">
+              <div class="relative w-full sm:w-auto">
+                <select name="sort" class="w-full sm:w-auto bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-xs rounded-xl px-3.5 py-2.5 font-medium focus:outline-none focus:ring-1 focus:ring-indigo-500 cursor-pointer">
                   <option selected={@selected_sort == "Plus récent"}>Trier par : Plus récent</option>
                   <option selected={@selected_sort == "Plus populaire"}>Plus populaire</option>
                   <option selected={@selected_sort == "Mieux notés"}>Mieux notés</option>
@@ -259,18 +259,18 @@ defmodule RepetoWeb.RessourcesLive do
               </div>
             </div>
 
-            <button type="button" class="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-bold transition-colors cursor-pointer">
-              <.icon name="hero-funnel" class="w-3.5 h-3.5 text-indigo-600" />
+            <button type="button" class="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-bold transition-colors cursor-pointer">
+              <.icon name="hero-funnel" class="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
               <span>Filtrer</span>
             </button>
           </form>
 
           <!-- Grille des Ressources -->
-          <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
 
             <.resource_card
               type="Fiche de révision"
-              type_badge_bg="bg-indigo-50 text-indigo-600"
+              type_badge_bg="bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-200/50 dark:border-indigo-800/50"
               format_badge="PDF - 12 pages"
               title="Fiche de révision : Dérivées"
               author="M. Franck T."
@@ -284,7 +284,7 @@ defmodule RepetoWeb.RessourcesLive do
 
             <.resource_card
               type="Annales"
-              type_badge_bg="bg-amber-50 text-amber-700"
+              type_badge_bg="bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-400 border border-amber-200/50 dark:border-amber-800/50"
               format_badge="PDF - 45 pages"
               title="Série d'annales Bac 2023 - Mathématiques"
               author="Sarah K."
@@ -298,7 +298,7 @@ defmodule RepetoWeb.RessourcesLive do
 
             <.resource_card
               type="Vidéo"
-              type_badge_bg="bg-purple-50 text-purple-600"
+              type_badge_bg="bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 border border-purple-200/50 dark:border-purple-800/50"
               format_badge="12 min"
               title="Les fonctions : cours complet"
               author="M. David N."
@@ -312,7 +312,7 @@ defmodule RepetoWeb.RessourcesLive do
 
             <.resource_card
               type="Exercice corrigé"
-              type_badge_bg="bg-emerald-50 text-emerald-600"
+              type_badge_bg="bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-200/50 dark:border-emerald-800/50"
               format_badge="PDF - 8 pages"
               title="Exercices corrigés : Intégrales"
               author="M. Franck T."
@@ -326,7 +326,7 @@ defmodule RepetoWeb.RessourcesLive do
 
             <.resource_card
               type="Fiche de révision"
-              type_badge_bg="bg-indigo-50 text-indigo-600"
+              type_badge_bg="bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-200/50 dark:border-indigo-800/50"
               format_badge="PDF - 10 pages"
               title="Les triangles et trigonométrie"
               author="Mme. Sarah K."
@@ -340,7 +340,7 @@ defmodule RepetoWeb.RessourcesLive do
 
             <.resource_card
               type="Lien utile"
-              type_badge_bg="bg-sky-50 text-sky-600"
+              type_badge_bg="bg-sky-50 dark:bg-sky-950/60 text-sky-600 dark:text-sky-400 border border-sky-200/50 dark:border-sky-800/50"
               format_badge="Outil en ligne"
               title="Simulateur de calculatrice Casio"
               author="Équipe Repeto"
@@ -357,44 +357,44 @@ defmodule RepetoWeb.RessourcesLive do
 
         </main>
 
-        <!-- Sidebar Droite -->
-        <aside class="w-80 bg-white border-l border-slate-200 hidden xl:flex flex-col p-5 overflow-y-auto space-y-6 shrink-0 h-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        <!-- Sidebar Droite (Masquable sur petits écrans, visible à partir de xl) -->
+        <aside class="w-80 bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 hidden xl:flex flex-col p-5 overflow-y-auto space-y-6 shrink-0 h-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
 
           <!-- Mes ressources favorites -->
           <div class="space-y-3.5">
             <div class="flex items-center justify-between">
-              <h2 class="text-xs font-black uppercase tracking-wider text-slate-500">Mes ressources favorites</h2>
-              <button class="text-[11px] font-bold text-indigo-600 hover:text-indigo-700 cursor-pointer">Voir tout</button>
+              <h2 class="text-xs font-black uppercase tracking-wider text-slate-500 dark:text-slate-400">Mes ressources favorites</h2>
+              <button class="text-[11px] font-bold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 cursor-pointer">Voir tout</button>
             </div>
 
             <div class="space-y-2.5">
               <.favorite_item
                 icon="hero-document-text"
-                icon_bg="bg-indigo-50 text-indigo-600"
+                icon_bg="bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400"
                 title="Fiche de révision : Dérivées"
                 subtitle="Mathématiques • Terminale C"
               />
               <.favorite_item
                 icon="hero-book-open"
-                icon_bg="bg-amber-50 text-amber-700"
+                icon_bg="bg-amber-50 dark:bg-amber-950 text-amber-700 dark:text-amber-400"
                 title="Annales Bac 2023"
                 subtitle="Mathématiques • Terminale C"
               />
               <.favorite_item
                 icon="hero-academic-cap"
-                icon_bg="bg-emerald-50 text-emerald-600"
+                icon_bg="bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400"
                 title="Exercices corrigés : Intégrales"
                 subtitle="Mathématiques • Terminale C"
               />
               <.favorite_item
                 icon="hero-video-camera"
-                icon_bg="bg-purple-50 text-purple-600"
+                icon_bg="bg-purple-50 dark:bg-purple-950 text-purple-600 dark:text-purple-400"
                 title="Les fonctions : cours complet"
                 subtitle="Mathématiques • Terminale C"
               />
               <.favorite_item
                 icon="hero-calculator"
-                icon_bg="bg-sky-50 text-sky-600"
+                icon_bg="bg-sky-50 dark:bg-sky-950 text-sky-600 dark:text-sky-400"
                 title="Simulateur de calculatrice Casio"
                 subtitle="Mathématiques • Tous niveaux"
               />
@@ -404,13 +404,13 @@ defmodule RepetoWeb.RessourcesLive do
           <!-- Ressources populaires -->
           <div class="space-y-3.5 pt-2">
             <div class="flex items-center justify-between">
-              <h2 class="text-xs font-black uppercase tracking-wider text-slate-500">Ressources populaires</h2>
+              <h2 class="text-xs font-black uppercase tracking-wider text-slate-500 dark:text-slate-400">Ressources populaires</h2>
             </div>
 
-            <div class="flex items-center bg-slate-100 p-1 rounded-xl text-[10px] font-bold text-slate-600">
-              <button class="flex-1 py-1 rounded-lg bg-white text-indigo-600 shadow-2xs text-center">Cette semaine</button>
-              <button class="flex-1 py-1 rounded-lg text-slate-500 hover:text-slate-800 text-center">Ce mois</button>
-              <button class="flex-1 py-1 rounded-lg text-slate-500 hover:text-slate-800 text-center">Tous temps</button>
+            <div class="flex items-center bg-slate-100 dark:bg-slate-800 p-1 rounded-xl text-[10px] font-bold text-slate-600 dark:text-slate-300">
+              <button class="flex-1 py-1 rounded-lg bg-white dark:bg-slate-700 text-indigo-600 dark:text-indigo-400 shadow-2xs text-center">Cette semaine</button>
+              <button class="flex-1 py-1 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white text-center">Ce mois</button>
+              <button class="flex-1 py-1 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white text-center">Tous temps</button>
             </div>
 
             <div class="space-y-3">
@@ -444,7 +444,7 @@ defmodule RepetoWeb.RessourcesLive do
                 category="Mathématiques • Première C"
                 downloads="1.8k"
                 views="874"
-                img="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=100&h=100&fit=crop"
+                img="https://images.unsplash.com/project-images/placeholder.png"
               />
               <.popular_item
                 rank="5"

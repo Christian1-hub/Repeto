@@ -27,20 +27,20 @@ defmodule RepetoWeb.ProgressionLive do
     ~H"""
     <Layouts.app flash={@flash} current_scope={assigns[:current_scope]} active_nav={@active_nav}>
       <!-- Conteneur global en plein écran flex sans scrollbar globale -->
-      <div class="flex-1 flex overflow-hidden h-[calc(100vh-4rem)] bg-slate-50/50">
+      <div class="flex-1 flex overflow-hidden h-[calc(100vh-4rem)] bg-slate-50/50 dark:bg-slate-950">
 
         <!-- Contenu Central (Scrollable sans barre visible) -->
-        <main class="flex-1 p-6 overflow-y-auto space-y-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        <main class="flex-1 p-4 sm:p-6 overflow-y-auto space-y-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
 
           <!-- En-tête de la page Progression -->
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-2xs">
             <div class="flex items-center gap-4">
-              <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center shrink-0">
+              <div class="w-12 h-12 bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 rounded-2xl flex items-center justify-center shrink-0">
                 <.icon name="hero-chart-bar-square" class="w-6 h-6" />
               </div>
               <div>
-                <h1 class="text-xl font-black text-slate-900">Ma progression</h1>
-                <p class="text-xs text-slate-500 mt-0.5">Suivez vos progrès, identifiez vos points forts et améliorez ce qui compte.</p>
+                <h1 class="text-xl font-black text-slate-900 dark:text-white">Ma progression</h1>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Suivez vos progrès, identifiez vos points forts et améliorez ce qui compte.</p>
               </div>
             </div>
           </div>
@@ -49,77 +49,77 @@ defmodule RepetoWeb.ProgressionLive do
           <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
 
             <!-- Carte 1 : Progression Globale -->
-            <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs flex items-center gap-4">
+            <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-2xs flex items-center gap-4">
               <div class="relative w-16 h-16 shrink-0 flex items-center justify-center">
                 <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
-                  <path class="text-slate-100" stroke-width="4" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                  <path class="text-indigo-600" stroke-dasharray="68, 100" stroke-width="4" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                  <path class="text-slate-100 dark:text-slate-800" stroke-width="4" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                  <path class="text-indigo-600 dark:text-indigo-500" stroke-dasharray="68, 100" stroke-width="4" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
                 </svg>
                 <div class="absolute inset-0 flex items-center justify-center">
-                  <span class="text-xs font-black text-slate-900">68%</span>
+                  <span class="text-xs font-black text-slate-900 dark:text-white">68%</span>
                 </div>
               </div>
               <div>
-                <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Progression globale</p>
-                <p class="text-xs font-bold text-slate-900 mt-0.5">Tu es sur la bonne voie !</p>
-                <p class="text-[10px] font-bold text-emerald-600 mt-1 flex items-center gap-1">
+                <p class="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Progression globale</p>
+                <p class="text-xs font-bold text-slate-900 dark:text-slate-200 mt-0.5">Tu es sur la bonne voie !</p>
+                <p class="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 mt-1 flex items-center gap-1">
                   <.icon name="hero-arrow-trending-up" class="w-3 h-3" /> +12% cette semaine
                 </p>
               </div>
             </div>
 
             <!-- Carte 2 : Cours complétés -->
-            <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs flex flex-col justify-between space-y-3">
+            <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-2xs flex flex-col justify-between space-y-3">
               <div class="flex items-center justify-between">
-                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Cours complétés</span>
-                <div class="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center">
+                <span class="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Cours complétés</span>
+                <div class="w-9 h-9 rounded-xl bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
                   <.icon name="hero-book-open" class="w-4 h-4" />
                 </div>
               </div>
               <div>
                 <div class="flex items-baseline gap-1.5">
-                  <span class="text-xl font-black text-slate-900">7</span>
-                  <span class="text-xs text-slate-400 font-bold">/ 12</span>
+                  <span class="text-xl font-black text-slate-900 dark:text-white">7</span>
+                  <span class="text-xs text-slate-400 dark:text-slate-500 font-bold">/ 12</span>
                 </div>
-                <div class="w-full h-1.5 bg-slate-100 rounded-full mt-2.5 overflow-hidden">
-                  <div class="h-full bg-indigo-600 rounded-full" style="width: 58%;"></div>
+                <div class="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full mt-2.5 overflow-hidden">
+                  <div class="h-full bg-indigo-600 dark:bg-indigo-500 rounded-full" style="width: 58%;"></div>
                 </div>
               </div>
             </div>
 
             <!-- Carte 3 : Exercices réussis -->
-            <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs flex flex-col justify-between space-y-3">
+            <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-2xs flex flex-col justify-between space-y-3">
               <div class="flex items-center justify-between">
-                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Exercices réussis</span>
-                <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                <span class="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Exercices réussis</span>
+                <div class="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
                   <.icon name="hero-academic-cap" class="w-4 h-4" />
                 </div>
               </div>
               <div>
                 <div class="flex items-baseline gap-1.5">
-                  <span class="text-xl font-black text-slate-900">18</span>
-                  <span class="text-xs text-slate-400 font-bold">/ 32</span>
+                  <span class="text-xl font-black text-slate-900 dark:text-white">18</span>
+                  <span class="text-xs text-slate-400 dark:text-slate-500 font-bold">/ 32</span>
                 </div>
-                <div class="w-full h-1.5 bg-slate-100 rounded-full mt-2.5 overflow-hidden">
+                <div class="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full mt-2.5 overflow-hidden">
                   <div class="h-full bg-emerald-500 rounded-full" style="width: 56%;"></div>
                 </div>
               </div>
             </div>
 
             <!-- Carte 4 : Quiz réussis -->
-            <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs flex flex-col justify-between space-y-3">
+            <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-2xs flex flex-col justify-between space-y-3">
               <div class="flex items-center justify-between">
-                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Quiz réussis</span>
-                <div class="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
+                <span class="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Quiz réussis</span>
+                <div class="w-9 h-9 rounded-xl bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 flex items-center justify-center">
                   <.icon name="hero-light-bulb" class="w-4 h-4" />
                 </div>
               </div>
               <div>
                 <div class="flex items-baseline gap-1.5">
-                  <span class="text-xl font-black text-slate-900">5</span>
-                  <span class="text-xs text-slate-400 font-bold">/ 10</span>
+                  <span class="text-xl font-black text-slate-900 dark:text-white">5</span>
+                  <span class="text-xs text-slate-400 dark:text-slate-500 font-bold">/ 10</span>
                 </div>
-                <div class="w-full h-1.5 bg-slate-100 rounded-full mt-2.5 overflow-hidden">
+                <div class="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full mt-2.5 overflow-hidden">
                   <div class="h-full bg-amber-500 rounded-full" style="width: 50%;"></div>
                 </div>
               </div>
@@ -131,12 +131,12 @@ defmodule RepetoWeb.ProgressionLive do
           <div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
 
             <!-- Évolution de la progression (Graphique) -->
-            <div class="xl:col-span-2 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-2xs space-y-6">
+            <div class="xl:col-span-2 bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-2xs space-y-6">
               <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                  <h2 class="text-sm font-black text-slate-900">Évolution de ta progression</h2>
+                  <h2 class="text-sm font-black text-slate-900 dark:text-white">Évolution de ta progression</h2>
                 </div>
-                <div class="flex items-center gap-1 bg-slate-100 p-1 rounded-xl text-xs font-bold text-slate-600">
+                <div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-300">
                   <.time_filter_btn label="7j" active={@time_filter == "7j"} filter="7j" />
                   <.time_filter_btn label="30j" active={@time_filter == "30j"} filter="30j" />
                   <.time_filter_btn label="3 mois" active={@time_filter == "3_mois"} filter="3_mois" />
@@ -147,12 +147,12 @@ defmodule RepetoWeb.ProgressionLive do
               <!-- Zone graphique -->
               <div class="relative h-64 w-full pt-4">
                 <!-- Lignes de repère horizontales -->
-                <div class="absolute inset-0 flex flex-col justify-between text-[10px] text-slate-300 pointer-events-none pb-6">
-                  <div class="border-b border-slate-100 w-full flex justify-between"><span>100%</span></div>
-                  <div class="border-b border-slate-100 w-full flex justify-between"><span>75%</span></div>
-                  <div class="border-b border-slate-100 w-full flex justify-between"><span>50%</span></div>
-                  <div class="border-b border-slate-100 w-full flex justify-between"><span>25%</span></div>
-                  <div class="border-b border-slate-100 w-full flex justify-between"><span>0%</span></div>
+                <div class="absolute inset-0 flex flex-col justify-between text-[10px] text-slate-300 dark:text-slate-700 pointer-events-none pb-6">
+                  <div class="border-b border-slate-100 dark:border-slate-800 w-full flex justify-between"><span>100%</span></div>
+                  <div class="border-b border-slate-100 dark:border-slate-800 w-full flex justify-between"><span>75%</span></div>
+                  <div class="border-b border-slate-100 dark:border-slate-800 w-full flex justify-between"><span>50%</span></div>
+                  <div class="border-b border-slate-100 dark:border-slate-800 w-full flex justify-between"><span>25%</span></div>
+                  <div class="border-b border-slate-100 dark:border-slate-800 w-full flex justify-between"><span>0%</span></div>
                 </div>
 
                 <!-- SVG Courbe précise -->
@@ -168,34 +168,34 @@ defmodule RepetoWeb.ProgressionLive do
                     <path d="M 0,125 C 90,115 150,118 240,110 C 330,102 400,90 490,75 C 580,60 630,55 700,45" fill="none" stroke="#6366f1" stroke-width="3" stroke-linecap="round" />
 
                     <!-- Points -->
-                    <circle cx="0" cy="125" r="4" class="fill-white stroke-indigo-600" stroke-width="2" />
-                    <circle cx="87" cy="118" r="4" class="fill-white stroke-indigo-600" stroke-width="2" />
-                    <circle cx="175" cy="116" r="4" class="fill-white stroke-indigo-600" stroke-width="2" />
-                    <circle cx="262" cy="108" r="4" class="fill-white stroke-indigo-600" stroke-width="2" />
-                    <circle cx="350" cy="98" r="4" class="fill-white stroke-indigo-600" stroke-width="2" />
-                    <circle cx="437" cy="85" r="4" class="fill-white stroke-indigo-600" stroke-width="2" />
-                    <circle cx="525" cy="68" r="4" class="fill-white stroke-indigo-600" stroke-width="2" />
-                    <circle cx="612" cy="55" r="5" class="fill-indigo-600 stroke-white" stroke-width="2" />
-                    <circle cx="700" cy="45" r="6" class="fill-indigo-600 stroke-white" stroke-width="2" />
+                    <circle cx="0" cy="125" r="4" class="fill-white dark:fill-slate-900 stroke-indigo-600 dark:stroke-indigo-400" stroke-width="2" />
+                    <circle cx="87" cy="118" r="4" class="fill-white dark:fill-slate-900 stroke-indigo-600 dark:stroke-indigo-400" stroke-width="2" />
+                    <circle cx="175" cy="116" r="4" class="fill-white dark:fill-slate-900 stroke-indigo-600 dark:stroke-indigo-400" stroke-width="2" />
+                    <circle cx="262" cy="108" r="4" class="fill-white dark:fill-slate-900 stroke-indigo-600 dark:stroke-indigo-400" stroke-width="2" />
+                    <circle cx="350" cy="98" r="4" class="fill-white dark:fill-slate-900 stroke-indigo-600 dark:stroke-indigo-400" stroke-width="2" />
+                    <circle cx="437" cy="85" r="4" class="fill-white dark:fill-slate-900 stroke-indigo-600 dark:stroke-indigo-400" stroke-width="2" />
+                    <circle cx="525" cy="68" r="4" class="fill-white dark:fill-slate-900 stroke-indigo-600 dark:stroke-indigo-400" stroke-width="2" />
+                    <circle cx="612" cy="55" r="5" class="fill-indigo-600 stroke-white dark:stroke-slate-900" stroke-width="2" />
+                    <circle cx="700" cy="45" r="6" class="fill-indigo-600 stroke-white dark:stroke-slate-900" stroke-width="2" />
                   </svg>
 
                   <!-- Popover tooltip -->
-                  <div class="absolute right-0 top-2 bg-slate-900 text-white px-3 py-1.5 rounded-xl text-[11px] font-bold shadow-xl flex items-center gap-1.5">
+                  <div class="absolute right-0 top-2 bg-slate-900 dark:bg-slate-800 text-white px-3 py-1.5 rounded-xl text-[11px] font-bold shadow-xl flex items-center gap-1.5 border border-slate-700">
                     <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
                     <span>68% • aujourd'hui</span>
                   </div>
                 </div>
 
                 <!-- Axe X (Dates) -->
-                <div class="absolute inset-x-0 bottom-0 flex justify-between text-[10px] text-slate-400 font-semibold">
+                <div class="absolute inset-x-0 bottom-0 flex justify-between text-[10px] text-slate-400 dark:text-slate-500 font-semibold overflow-hidden">
                   <span>12 Avr</span>
-                  <span>15 Avr</span>
+                  <span class="hidden sm:inline">15 Avr</span>
                   <span>18 Avr</span>
-                  <span>21 Avr</span>
+                  <span class="hidden sm:inline">21 Avr</span>
                   <span>24 Avr</span>
-                  <span>27 Avr</span>
+                  <span class="hidden sm:inline">27 Avr</span>
                   <span>30 Avr</span>
-                  <span>3 Mai</span>
+                  <span class="hidden sm:inline">3 Mai</span>
                   <span>6 Mai</span>
                   <span>9 Mai</span>
                 </div>
@@ -203,17 +203,17 @@ defmodule RepetoWeb.ProgressionLive do
             </div>
 
             <!-- Répartition par matière -->
-            <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-2xs flex flex-col justify-between space-y-4">
+            <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-2xs flex flex-col justify-between space-y-4">
               <div class="flex items-center justify-between">
-                <h2 class="text-sm font-black text-slate-900">Répartition par matière</h2>
+                <h2 class="text-sm font-black text-slate-900 dark:text-white">Répartition par matière</h2>
                 <.icon name="hero-chart-pie" class="w-4 h-4 text-slate-400" />
               </div>
 
               <!-- Cercle Donut -->
               <div class="relative w-36 h-36 mx-auto flex items-center justify-center my-1">
                 <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
-                  <circle cx="18" cy="18" r="15.9155" class="text-slate-100" stroke-width="4" stroke="currentColor" fill="none" />
-                  <circle cx="18" cy="18" r="15.9155" class="text-indigo-600" stroke-width="4" stroke-dasharray="42 58" stroke-dashoffset="0" fill="none" />
+                  <circle cx="18" cy="18" r="15.9155" class="text-slate-100 dark:text-slate-800" stroke-width="4" stroke="currentColor" fill="none" />
+                  <circle cx="18" cy="18" r="15.9155" class="text-indigo-600 dark:text-indigo-500" stroke-width="4" stroke-dasharray="42 58" stroke-dashoffset="0" fill="none" />
                   <circle cx="18" cy="18" r="15.9155" class="text-sky-500" stroke-width="4" stroke-dasharray="18 82" stroke-dashoffset="-42" fill="none" />
                   <circle cx="18" cy="18" r="15.9155" class="text-emerald-500" stroke-width="4" stroke-dasharray="12 88" stroke-dashoffset="-60" fill="none" />
                   <circle cx="18" cy="18" r="15.9155" class="text-amber-500" stroke-width="4" stroke-dasharray="8 92" stroke-dashoffset="-72" fill="none" />
@@ -222,20 +222,20 @@ defmodule RepetoWeb.ProgressionLive do
                   <circle cx="18" cy="18" r="15.9155" class="text-slate-400" stroke-width="4" stroke-dasharray="10 90" stroke-dashoffset="-90" fill="none" />
                 </svg>
                 <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
-                  <span class="text-lg font-black text-slate-900 leading-none">12</span>
+                  <span class="text-lg font-black text-slate-900 dark:text-white leading-none">12</span>
                   <span class="text-[10px] text-slate-400 font-bold uppercase mt-0.5">matières</span>
                 </div>
               </div>
 
               <!-- Légende -->
               <div class="grid grid-cols-2 gap-x-3 gap-y-1.5 text-[11px]">
-                <div class="flex items-center justify-between text-slate-600"><span class="flex items-center gap-1.5 font-medium"><span class="w-2 h-2 rounded-full bg-indigo-600"></span>Mathématiques</span> <strong class="text-slate-900">42%</strong></div>
-                <div class="flex items-center justify-between text-slate-600"><span class="flex items-center gap-1.5 font-medium"><span class="w-2 h-2 rounded-full bg-sky-500"></span>Physique</span> <strong class="text-slate-900">18%</strong></div>
-                <div class="flex items-center justify-between text-slate-600"><span class="flex items-center gap-1.5 font-medium"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>Chimie</span> <strong class="text-slate-900">12%</strong></div>
-                <div class="flex items-center justify-between text-slate-600"><span class="flex items-center gap-1.5 font-medium"><span class="w-2 h-2 rounded-full bg-amber-500"></span>Français</span> <strong class="text-slate-900">8%</strong></div>
-                <div class="flex items-center justify-between text-slate-600"><span class="flex items-center gap-1.5 font-medium"><span class="w-2 h-2 rounded-full bg-pink-500"></span>Anglais</span> <strong class="text-slate-900">6%</strong></div>
-                <div class="flex items-center justify-between text-slate-600"><span class="flex items-center gap-1.5 font-medium"><span class="w-2 h-2 rounded-full bg-teal-500"></span>Informatique</span> <strong class="text-slate-900">4%</strong></div>
-                <div class="flex items-center justify-between text-slate-600 col-span-2 pt-1.5 border-t border-slate-100"><span class="flex items-center gap-1.5 font-medium"><span class="w-2 h-2 rounded-full bg-slate-400"></span>Autres</span> <strong class="text-slate-900">10%</strong></div>
+                <div class="flex items-center justify-between text-slate-600 dark:text-slate-400"><span class="flex items-center gap-1.5 font-medium"><span class="w-2 h-2 rounded-full bg-indigo-600"></span>Mathématiques</span> <strong class="text-slate-900 dark:text-slate-200">42%</strong></div>
+                <div class="flex items-center justify-between text-slate-600 dark:text-slate-400"><span class="flex items-center gap-1.5 font-medium"><span class="w-2 h-2 rounded-full bg-sky-500"></span>Physique</span> <strong class="text-slate-900 dark:text-slate-200">18%</strong></div>
+                <div class="flex items-center justify-between text-slate-600 dark:text-slate-400"><span class="flex items-center gap-1.5 font-medium"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>Chimie</span> <strong class="text-slate-900 dark:text-slate-200">12%</strong></div>
+                <div class="flex items-center justify-between text-slate-600 dark:text-slate-400"><span class="flex items-center gap-1.5 font-medium"><span class="w-2 h-2 rounded-full bg-amber-500"></span>Français</span> <strong class="text-slate-900 dark:text-slate-200">8%</strong></div>
+                <div class="flex items-center justify-between text-slate-600 dark:text-slate-400"><span class="flex items-center gap-1.5 font-medium"><span class="w-2 h-2 rounded-full bg-pink-500"></span>Anglais</span> <strong class="text-slate-900 dark:text-slate-200">6%</strong></div>
+                <div class="flex items-center justify-between text-slate-600 dark:text-slate-400"><span class="flex items-center gap-1.5 font-medium"><span class="w-2 h-2 rounded-full bg-teal-500"></span>Informatique</span> <strong class="text-slate-900 dark:text-slate-200">4%</strong></div>
+                <div class="flex items-center justify-between text-slate-600 dark:text-slate-400 col-span-2 pt-1.5 border-t border-slate-100 dark:border-slate-800"><span class="flex items-center gap-1.5 font-medium"><span class="w-2 h-2 rounded-full bg-slate-400"></span>Autres</span> <strong class="text-slate-900 dark:text-slate-200">10%</strong></div>
               </div>
 
             </div>
@@ -245,8 +245,8 @@ defmodule RepetoWeb.ProgressionLive do
           <!-- Section Mes matières (Grille détaillée) -->
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <h2 class="text-sm font-black text-slate-900">Mes matières</h2>
-              <button class="text-xs font-bold text-indigo-600 hover:text-indigo-700 flex items-center gap-1 cursor-pointer">
+              <h2 class="text-sm font-black text-slate-900 dark:text-white">Mes matières</h2>
+              <button class="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 flex items-center gap-1 cursor-pointer">
                 <span>Voir le détail</span>
                 <.icon name="hero-arrow-right" class="w-3.5 h-3.5" />
               </button>
@@ -257,10 +257,10 @@ defmodule RepetoWeb.ProgressionLive do
               <.subject_card
                 title="Mathématiques"
                 icon="hero-calculator"
-                color="text-indigo-600"
-                bg="bg-indigo-50"
+                color="text-indigo-600 dark:text-indigo-400"
+                bg="bg-indigo-50 dark:bg-indigo-950/50"
                 progress={75}
-                progress_color="bg-indigo-600"
+                progress_color="bg-indigo-600 dark:bg-indigo-500"
                 cours_count="12 / 16 cours"
                 weekly_gain="+3% cette semaine"
               />
@@ -269,7 +269,7 @@ defmodule RepetoWeb.ProgressionLive do
                 title="Physique"
                 icon="hero-bolt"
                 color="text-sky-500"
-                bg="bg-sky-50"
+                bg="bg-sky-50 dark:bg-sky-950/50"
                 progress={62}
                 progress_color="bg-sky-500"
                 cours_count="8 / 13 cours"
@@ -279,8 +279,8 @@ defmodule RepetoWeb.ProgressionLive do
               <.subject_card
                 title="Chimie"
                 icon="hero-beaker"
-                color="text-emerald-600"
-                bg="bg-emerald-50"
+                color="text-emerald-600 dark:text-emerald-400"
+                bg="bg-emerald-50 dark:bg-emerald-950/50"
                 progress={48}
                 progress_color="bg-emerald-500"
                 cours_count="6 / 12 cours"
@@ -290,8 +290,8 @@ defmodule RepetoWeb.ProgressionLive do
               <.subject_card
                 title="Français"
                 icon="hero-book-open"
-                color="text-rose-600"
-                bg="bg-rose-50"
+                color="text-rose-600 dark:text-rose-400"
+                bg="bg-rose-50 dark:bg-rose-950/50"
                 progress={80}
                 progress_color="bg-rose-500"
                 cours_count="8 / 10 cours"
@@ -301,8 +301,8 @@ defmodule RepetoWeb.ProgressionLive do
               <.subject_card
                 title="Anglais"
                 icon="hero-language"
-                color="text-teal-600"
-                bg="bg-teal-50"
+                color="text-teal-600 dark:text-teal-400"
+                bg="bg-teal-50 dark:bg-teal-950/50"
                 progress={55}
                 progress_color="bg-teal-500"
                 cours_count="7 / 12 cours"
@@ -315,8 +315,8 @@ defmodule RepetoWeb.ProgressionLive do
           <!-- Section Mes derniers accomplissements -->
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <h2 class="text-sm font-black text-slate-900">Mes derniers accomplissements</h2>
-              <button class="text-xs font-bold text-indigo-600 hover:text-indigo-700 flex items-center gap-1 cursor-pointer">
+              <h2 class="text-sm font-black text-slate-900 dark:text-white">Mes derniers accomplissements</h2>
+              <button class="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 flex items-center gap-1 cursor-pointer">
                 <span>Voir tous</span>
                 <.icon name="hero-arrow-right" class="w-3.5 h-3.5" />
               </button>
@@ -329,7 +329,7 @@ defmodule RepetoWeb.ProgressionLive do
                 description="Tu as complété tous les cours sur les fonctions."
                 date="6 Mai 2025"
                 icon="hero-trophy"
-                badge_bg="bg-indigo-50 text-indigo-600"
+                badge_bg="bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400"
               />
 
               <.achievement_card
@@ -337,7 +337,7 @@ defmodule RepetoWeb.ProgressionLive do
                 description="Tu as obtenu 100% au quiz sur les dérivées."
                 date="4 Mai 2025"
                 icon="hero-fire"
-                badge_bg="bg-amber-50 text-amber-600"
+                badge_bg="bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400"
               />
 
               <.achievement_card
@@ -345,7 +345,7 @@ defmodule RepetoWeb.ProgressionLive do
                 description="7 jours consécutifs d'activité."
                 date="3 Mai 2025"
                 icon="hero-shield-check"
-                badge_bg="bg-emerald-50 text-emerald-600"
+                badge_bg="bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400"
               />
 
               <.achievement_card
@@ -353,7 +353,7 @@ defmodule RepetoWeb.ProgressionLive do
                 description="Tu as étudié 3h aujourd'hui."
                 date="2 Mai 2025"
                 icon="hero-sparkles"
-                badge_bg="bg-sky-50 text-sky-600"
+                badge_bg="bg-sky-50 dark:bg-sky-950/50 text-sky-600 dark:text-sky-400"
               />
 
             </div>
@@ -361,14 +361,14 @@ defmodule RepetoWeb.ProgressionLive do
 
         </main>
 
-        <!-- Sidebar Droite : Fixe et scrollable sans barre visible -->
-        <aside class="w-80 bg-white border-l border-slate-200 hidden xl:flex flex-col p-5 overflow-y-auto space-y-6 shrink-0 h-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        <!-- Sidebar Droite : Fixe et scrollable sans barre visible (Responsive : cachée sur tablettes et mobiles, visible sur écrans larges XL) -->
+        <aside class="w-80 bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 hidden xl:flex flex-col p-5 overflow-y-auto space-y-6 shrink-0 h-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
 
           <!-- Mes objectifs -->
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <h2 class="text-xs font-black uppercase tracking-wider text-slate-500">Mes objectifs</h2>
-              <button class="text-[11px] font-bold text-indigo-600 hover:text-indigo-700 cursor-pointer">Voir tout</button>
+              <h2 class="text-xs font-black uppercase tracking-wider text-slate-500 dark:text-slate-400">Mes objectifs</h2>
+              <button class="text-[11px] font-bold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 cursor-pointer">Voir tout</button>
             </div>
 
             <div class="space-y-3">
@@ -394,8 +394,8 @@ defmodule RepetoWeb.ProgressionLive do
               />
             </div>
 
-            <button class="w-full bg-slate-50 hover:bg-slate-100 border border-slate-200/80 text-slate-700 font-bold text-xs py-2.5 rounded-xl transition-colors flex items-center justify-center gap-2 cursor-pointer">
-              <.icon name="hero-plus" class="w-4 h-4 text-indigo-600" />
+            <button class="w-full bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-750 border border-slate-200/80 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs py-2.5 rounded-xl transition-colors flex items-center justify-center gap-2 cursor-pointer">
+              <.icon name="hero-plus" class="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
               <span>Ajouter un objectif</span>
             </button>
           </div>
@@ -403,14 +403,14 @@ defmodule RepetoWeb.ProgressionLive do
           <!-- Activité récente -->
           <div class="space-y-3 pt-2">
             <div class="flex items-center justify-between">
-              <h2 class="text-xs font-black uppercase tracking-wider text-slate-500">Activité récente</h2>
-              <button class="text-[11px] font-bold text-indigo-600 hover:text-indigo-700 cursor-pointer">Voir tout</button>
+              <h2 class="text-xs font-black uppercase tracking-wider text-slate-500 dark:text-slate-400">Activité récente</h2>
+              <button class="text-[11px] font-bold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 cursor-pointer">Voir tout</button>
             </div>
 
             <div class="space-y-3.5">
               <.activity_item
                 icon="hero-book-open"
-                icon_bg="bg-indigo-50 text-indigo-600"
+                icon_bg="bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400"
                 title="Tu as terminé le cours"
                 subtitle="Les fonctions et leurs limites"
                 time="Il y a 2 heures"
@@ -418,7 +418,7 @@ defmodule RepetoWeb.ProgressionLive do
 
               <.activity_item
                 icon="hero-light-bulb"
-                icon_bg="bg-amber-50 text-amber-600"
+                icon_bg="bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400"
                 title="Tu as réussi le quiz"
                 subtitle="Dérivées – Niveau Moyen"
                 time="Il y a 4 heures"
@@ -426,7 +426,7 @@ defmodule RepetoWeb.ProgressionLive do
 
               <.activity_item
                 icon="hero-pencil-square"
-                icon_bg="bg-sky-50 text-sky-600"
+                icon_bg="bg-sky-50 dark:bg-sky-950/50 text-sky-600 dark:text-sky-400"
                 title="Tu as complété l'exercice"
                 subtitle="Étude d'une fonction"
                 time="Il y a 6 heures"
@@ -434,7 +434,7 @@ defmodule RepetoWeb.ProgressionLive do
 
               <.activity_item
                 icon="hero-question-mark-circle"
-                icon_bg="bg-emerald-50 text-emerald-600"
+                icon_bg="bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400"
                 title="Tu as posé une question"
                 subtitle="sur les intégrales"
                 time="Il y a 8 heures"
@@ -442,7 +442,7 @@ defmodule RepetoWeb.ProgressionLive do
 
               <.activity_item
                 icon="hero-users"
-                icon_bg="bg-purple-50 text-purple-600"
+                icon_bg="bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400"
                 title="Tu as rejoint la communauté"
                 subtitle="Mathématiques – Terminale C"
                 time="Il y a 1 jour"
@@ -464,7 +464,7 @@ defmodule RepetoWeb.ProgressionLive do
       phx-value-filter={@filter}
       class={[
         "px-3 py-1.5 rounded-lg transition-all cursor-pointer",
-        @active && "bg-white text-indigo-600 shadow-2xs font-black" || "text-slate-500 hover:text-slate-800"
+        @active && "bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-2xs font-black" || "text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200"
       ]}
     >
       {@label}
@@ -474,25 +474,25 @@ defmodule RepetoWeb.ProgressionLive do
 
   def subject_card(assigns) do
     ~H"""
-    <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs flex flex-col justify-between space-y-4 hover:shadow-md transition-all">
+    <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-2xs flex flex-col justify-between space-y-4 hover:shadow-md transition-all">
       <div class="flex items-center justify-between">
         <div class={"w-10 h-10 #{@bg} #{@color} rounded-xl flex items-center justify-center"}>
           <.icon name={@icon} class="w-5 h-5" />
         </div>
-        <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">{@weekly_gain}</span>
+        <span class="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 px-2 py-0.5 rounded-full">{@weekly_gain}</span>
       </div>
 
       <div>
-        <h3 class="text-xs font-black text-slate-900">{@title}</h3>
-        <p class="text-[11px] text-slate-400 font-medium mt-0.5">{@cours_count}</p>
+        <h3 class="text-xs font-black text-slate-900 dark:text-white">{@title}</h3>
+        <p class="text-[11px] text-slate-400 dark:text-slate-500 font-medium mt-0.5">{@cours_count}</p>
       </div>
 
       <div class="space-y-1.5 pt-1">
         <div class="flex items-center justify-between text-xs">
-          <span class="text-slate-500 font-medium text-[11px]">Progression</span>
-          <span class="font-bold text-slate-900 text-[11px]">{@progress}%</span>
+          <span class="text-slate-500 dark:text-slate-400 font-medium text-[11px]">Progression</span>
+          <span class="font-bold text-slate-900 dark:text-white text-[11px]">{@progress}%</span>
         </div>
-        <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+        <div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
           <div class={"h-full #{@progress_color} rounded-full"} style={"width: #{@progress}%"}></div>
         </div>
       </div>
@@ -502,16 +502,16 @@ defmodule RepetoWeb.ProgressionLive do
 
   def achievement_card(assigns) do
     ~H"""
-    <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs space-y-3 flex flex-col justify-between">
+    <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-2xs space-y-3 flex flex-col justify-between">
       <div class="flex items-center justify-between">
         <div class={"w-9 h-9 #{@badge_bg} rounded-xl flex items-center justify-center"}>
           <.icon name={@icon} class="w-5 h-5" />
         </div>
-        <span class="text-[10px] text-slate-400 font-medium">{@date}</span>
+        <span class="text-[10px] text-slate-400 dark:text-slate-500 font-medium">{@date}</span>
       </div>
       <div>
-        <h3 class="text-xs font-black text-slate-900">{@title}</h3>
-        <p class="text-[11px] text-slate-500 font-medium mt-1 leading-snug">{@description}</p>
+        <h3 class="text-xs font-black text-slate-900 dark:text-white">{@title}</h3>
+        <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium mt-1 leading-snug">{@description}</p>
       </div>
     </div>
     """
@@ -519,20 +519,20 @@ defmodule RepetoWeb.ProgressionLive do
 
   def goal_item(assigns) do
     ~H"""
-    <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200/80 space-y-2">
+    <div class="bg-slate-50 dark:bg-slate-800/60 p-3.5 rounded-2xl border border-slate-200/80 dark:border-slate-750 space-y-2">
       <div class="flex items-center gap-2.5">
-        <div class="w-7 h-7 bg-white text-indigo-600 rounded-lg shadow-2xs flex items-center justify-center shrink-0">
+        <div class="w-7 h-7 bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-2xs flex items-center justify-center shrink-0">
           <.icon name={@icon} class="w-3.5 h-3.5" />
         </div>
-        <h3 class="text-xs font-bold text-slate-900 leading-tight">{@title}</h3>
+        <h3 class="text-xs font-bold text-slate-900 dark:text-white leading-tight">{@title}</h3>
       </div>
       <div class="space-y-1 pl-9">
         <div class="flex justify-between text-[10px]">
-          <span class="text-slate-400 font-medium">{@details}</span>
-          <span class="font-bold text-slate-800">{@progress}%</span>
+          <span class="text-slate-400 dark:text-slate-500 font-medium">{@details}</span>
+          <span class="font-bold text-slate-800 dark:text-slate-200">{@progress}%</span>
         </div>
-        <div class="w-full h-1.5 bg-slate-200/70 rounded-full overflow-hidden">
-          <div class="h-full bg-indigo-600 rounded-full" style={"width: #{@progress}%"}></div>
+        <div class="w-full h-1.5 bg-slate-200/70 dark:bg-slate-700 rounded-full overflow-hidden">
+          <div class="h-full bg-indigo-600 dark:bg-indigo-500 rounded-full" style={"width: #{@progress}%"}></div>
         </div>
       </div>
     </div>
@@ -546,10 +546,10 @@ defmodule RepetoWeb.ProgressionLive do
         <.icon name={@icon} class="w-3.5 h-3.5" />
       </div>
       <div class="space-y-0.5">
-        <p class="text-[11px] text-slate-600 leading-snug">
-          {@title} <strong class="text-slate-900 font-bold">{@subtitle}</strong>
+        <p class="text-[11px] text-slate-600 dark:text-slate-400 leading-snug">
+          {@title} <strong class="text-slate-900 dark:text-white font-bold">{@subtitle}</strong>
         </p>
-        <p class="text-[10px] text-slate-400">{@time}</p>
+        <p class="text-[10px] text-slate-400 dark:text-slate-500">{@time}</p>
       </div>
     </div>
     """

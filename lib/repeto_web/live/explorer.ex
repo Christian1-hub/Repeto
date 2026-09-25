@@ -33,10 +33,10 @@ defmodule RepetoWeb.ExplorerLive do
     ]
 
     resources = [
-      %{title: "Cours de mathématiques Terminale", type: "PDF • 12 pages", author: "Par M. Franck T.", downloads: "12,4K téléchargements", icon_color: "text-rose-500", bg_color: "bg-rose-50"},
-      %{title: "Formules importantes en Physique", type: "PPT • 18 diapositives", author: "Par M. David P.", downloads: "8,7K téléchargements", icon_color: "text-amber-500", bg_color: "bg-amber-50"},
-      %{title: "Résumé de chimie organique", type: "DOC • 15 pages", author: "Par Mme. Sarah K.", downloads: "6,1K téléchargements", icon_color: "text-blue-500", bg_color: "bg-blue-50"},
-      %{title: "Épreuves de Maths TC 2024", type: "PDF • 11 pages", author: "Par Repeto", downloads: "15,2K téléchargements", icon_color: "text-emerald-500", bg_color: "bg-emerald-50"}
+      %{title: "Cours de mathématiques Terminale", type: "PDF • 12 pages", author: "Par M. Franck T.", downloads: "12,4K téléchargements", icon_color: "text-rose-500", bg_color: "bg-rose-50 dark:bg-rose-950/50"},
+      %{title: "Formules importantes en Physique", type: "PPT • 18 diapositives", author: "Par M. David P.", downloads: "8,7K téléchargements", icon_color: "text-amber-500", bg_color: "bg-amber-50 dark:bg-amber-950/50"},
+      %{title: "Résumé de chimie organique", type: "DOC • 15 pages", author: "Par Mme. Sarah K.", downloads: "6,1K téléchargements", icon_color: "text-blue-500", bg_color: "bg-blue-50 dark:bg-blue-950/50"},
+      %{title: "Épreuves de Maths TC 2024", type: "PDF • 11 pages", author: "Par Repeto", downloads: "15,2K téléchargements", icon_color: "text-emerald-500", bg_color: "bg-emerald-50 dark:bg-emerald-950/50"}
     ]
 
     trends = [
@@ -65,8 +65,8 @@ defmodule RepetoWeb.ExplorerLive do
 
       <!-- En-tête de la page -->
       <div>
-        <h1 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">Explorer</h1>
-        <p class="text-xs sm:text-sm text-slate-500 mt-1">Découvrez du contenu, des personnes et des communautés qui vous aideront à apprendre et à réussir.</p>
+        <h1 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">Explorer</h1>
+        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">Découvrez du contenu, des personnes et des communautés qui vous aideront à apprendre et à réussir.</p>
       </div>
 
       <!-- Filtres par catégories (Icônes de matières) -->
@@ -89,8 +89,8 @@ defmodule RepetoWeb.ExplorerLive do
             class={[
               "flex flex-col items-center justify-center gap-2 p-3.5 rounded-2xl min-w-[88px] transition-all cursor-pointer border shrink-0 font-semibold text-xs",
               @selected_category == cat["id"]
-                && "bg-indigo-600 text-white border-indigo-600 shadow-md shadow-indigo-200"
-                || "bg-white text-slate-600 border-slate-200/80 hover:bg-slate-50"
+                && "bg-indigo-600 text-white border-indigo-600 shadow-md shadow-indigo-200 dark:shadow-none"
+                || "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border-slate-200/80 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/60"
             ]}
           >
             <.icon name={cat["icon"]} class="w-6 h-6" />
@@ -108,14 +108,14 @@ defmodule RepetoWeb.ExplorerLive do
           <!-- COMMUNAUTÉS POPULAIRES -->
           <section class="space-y-4 relative">
             <div class="flex items-center justify-between">
-              <h2 class="font-extrabold text-sm sm:text-base text-slate-900">Communautés populaires</h2>
-              <a href="#" class="text-xs font-bold text-indigo-600 hover:underline">Voir tout</a>
+              <h2 class="font-extrabold text-sm sm:text-base text-slate-900 dark:text-white">Communautés populaires</h2>
+              <a href="#" class="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline">Voir tout</a>
             </div>
 
             <div class="relative">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <%= for comm <- @communities do %>
-                  <div class="bg-white border border-slate-200/80 rounded-2xl overflow-hidden shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
+                  <div class="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl overflow-hidden shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
                     <div class="relative h-28 overflow-hidden">
                       <img src={comm.image} class="w-full h-full object-cover" />
                       <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
@@ -131,8 +131,8 @@ defmodule RepetoWeb.ExplorerLive do
                     </div>
 
                     <div class="p-4 space-y-3 flex-1 flex flex-col justify-between">
-                      <p class="text-xs text-slate-600 leading-relaxed">{comm.desc}</p>
-                      <button class="w-full py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 font-semibold text-xs rounded-xl transition-colors text-center cursor-pointer">
+                      <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">{comm.desc}</p>
+                      <button class="w-full py-2 bg-indigo-50 dark:bg-indigo-950/50 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 font-semibold text-xs rounded-xl transition-colors text-center cursor-pointer">
                         Rejoindre
                       </button>
                     </div>
@@ -140,7 +140,7 @@ defmodule RepetoWeb.ExplorerLive do
                 <% end %>
               </div>
 
-              <button class="absolute -right-4 top-1/2 -translate-y-1/2 w-9 h-9 bg-white border border-slate-200 shadow-md rounded-full flex items-center justify-center text-slate-600 hover:bg-slate-50 transition-all z-10 cursor-pointer hidden sm:flex">
+              <button class="absolute -right-4 top-1/2 -translate-y-1/2 w-9 h-9 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-md rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all z-10 cursor-pointer hidden sm:flex">
                 <.icon name="hero-chevron-right" class="w-4 h-4" />
               </button>
             </div>
@@ -149,46 +149,46 @@ defmodule RepetoWeb.ExplorerLive do
           <!-- RÉPÉTITEURS POPULAIRES -->
           <section class="space-y-4 relative">
             <div class="flex items-center justify-between">
-              <h2 class="font-extrabold text-sm sm:text-base text-slate-900">Répétiteurs populaires</h2>
-              <a href="#" class="text-xs font-bold text-indigo-600 hover:underline">Voir tout</a>
+              <h2 class="font-extrabold text-sm sm:text-base text-slate-900 dark:text-white">Répétiteurs populaires</h2>
+              <a href="#" class="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline">Voir tout</a>
             </div>
 
             <div class="relative">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <%= for tutor <- @tutors do %>
-                  <div class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs hover:shadow-md transition-all space-y-4 flex flex-col justify-between">
+                  <div class="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-4 shadow-xs hover:shadow-md transition-all space-y-4 flex flex-col justify-between">
                     <div class="flex items-start justify-between">
                       <div class="flex items-center gap-3">
                         <img src={tutor.avatar} class="w-12 h-12 rounded-full object-cover ring-2 ring-indigo-500/20" />
                         <div>
                           <div class="flex items-center gap-1">
-                            <h3 class="font-bold text-xs text-slate-900">{tutor.name}</h3>
-                            <.icon name="hero-check-badge" class="w-4 h-4 text-indigo-600" />
+                            <h3 class="font-bold text-xs text-slate-900 dark:text-white">{tutor.name}</h3>
+                            <.icon name="hero-check-badge" class="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
                           </div>
-                          <p class="text-[11px] text-slate-500">{tutor.role}</p>
+                          <p class="text-[11px] text-slate-500 dark:text-slate-400">{tutor.role}</p>
                           <div class="flex items-center gap-1 text-xs text-amber-500 font-bold mt-0.5">
-                            ★ {tutor.rating} <span class="text-slate-400 font-normal">({tutor.reviews})</span>
+                            ★ {tutor.rating} <span class="text-slate-400 dark:text-slate-500 font-normal">({tutor.reviews})</span>
                           </div>
                         </div>
                       </div>
                     </div>
 
-                    <div class="flex items-center justify-between text-[11px] text-slate-500 border-t border-slate-100 pt-3">
+                    <div class="flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-800 pt-3">
                       <span class="flex items-center gap-1">
                         <.icon name="hero-map-pin" class="w-3.5 h-3.5 text-slate-400" />
                         {tutor.city}
                       </span>
-                      <span class="font-extrabold text-indigo-600 text-xs">{tutor.price} <span class="text-[10px] text-slate-400 font-normal">/ heure</span></span>
+                      <span class="font-extrabold text-indigo-600 dark:text-indigo-400 text-xs">{tutor.price} <span class="text-[10px] text-slate-400 dark:text-slate-500 font-normal">/ heure</span></span>
                     </div>
 
-                    <button class="w-full py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 font-semibold text-xs rounded-xl transition-colors cursor-pointer">
+                    <button class="w-full py-2 bg-indigo-50 dark:bg-indigo-950/50 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 font-semibold text-xs rounded-xl transition-colors cursor-pointer">
                       Voir le profil
                     </button>
                   </div>
                 <% end %>
               </div>
 
-              <button class="absolute -right-4 top-1/2 -translate-y-1/2 w-9 h-9 bg-white border border-slate-200 shadow-md rounded-full flex items-center justify-center text-slate-600 hover:bg-slate-50 transition-all z-10 cursor-pointer hidden sm:flex">
+              <button class="absolute -right-4 top-1/2 -translate-y-1/2 w-9 h-9 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-md rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all z-10 cursor-pointer hidden sm:flex">
                 <.icon name="hero-chevron-right" class="w-4 h-4" />
               </button>
             </div>
@@ -197,26 +197,26 @@ defmodule RepetoWeb.ExplorerLive do
           <!-- RESSOURCES POPULAIRES -->
           <section class="space-y-4 relative">
             <div class="flex items-center justify-between">
-              <h2 class="font-extrabold text-sm sm:text-base text-slate-900">Ressources populaires</h2>
-              <a href="#" class="text-xs font-bold text-indigo-600 hover:underline">Voir tout</a>
+              <h2 class="font-extrabold text-sm sm:text-base text-slate-900 dark:text-white">Ressources populaires</h2>
+              <a href="#" class="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline">Voir tout</a>
             </div>
 
             <div class="relative">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <%= for res <- @resources do %>
-                  <div class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs hover:shadow-md transition-all space-y-4 flex flex-col justify-between">
+                  <div class="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-4 shadow-xs hover:shadow-md transition-all space-y-4 flex flex-col justify-between">
                     <div class="flex items-start gap-3">
                       <div class={"w-10 h-10 #{res.bg_color} #{res.icon_color} rounded-xl flex items-center justify-center shrink-0 font-bold text-xs"}>
                         <.icon name="hero-document-text" class="w-5 h-5" />
                       </div>
                       <div class="space-y-1">
-                        <h3 class="font-bold text-xs text-slate-900 leading-snug">{res.title}</h3>
-                        <p class="text-[10px] font-semibold text-indigo-600">{res.type}</p>
-                        <p class="text-[11px] text-slate-500">{res.author}</p>
+                        <h3 class="font-bold text-xs text-slate-900 dark:text-white leading-snug">{res.title}</h3>
+                        <p class="text-[10px] font-semibold text-indigo-600 dark:text-indigo-400">{res.type}</p>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400">{res.author}</p>
                       </div>
                     </div>
 
-                    <div class="flex items-center justify-between border-t border-slate-100 pt-3 text-[11px] text-slate-400">
+                    <div class="flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-3 text-[11px] text-slate-400 dark:text-slate-500">
                       <span class="flex items-center gap-1">
                         <.icon name="hero-arrow-down-tray" class="w-3.5 h-3.5" />
                         {res.downloads}
@@ -226,7 +226,7 @@ defmodule RepetoWeb.ExplorerLive do
                 <% end %>
               </div>
 
-              <button class="absolute -right-4 top-1/2 -translate-y-1/2 w-9 h-9 bg-white border border-slate-200 shadow-md rounded-full flex items-center justify-center text-slate-600 hover:bg-slate-50 transition-all z-10 cursor-pointer hidden sm:flex">
+              <button class="absolute -right-4 top-1/2 -translate-y-1/2 w-9 h-9 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-md rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all z-10 cursor-pointer hidden sm:flex">
                 <.icon name="hero-chevron-right" class="w-4 h-4" />
               </button>
             </div>
@@ -238,59 +238,59 @@ defmodule RepetoWeb.ExplorerLive do
         <div class="lg:sticky lg:top-8 space-y-6">
 
           <!-- TENDANCES -->
-          <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs space-y-4">
-            <h3 class="font-extrabold text-xs text-slate-900">Tendances</h3>
+          <div class="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-5 shadow-xs space-y-4">
+            <h3 class="font-extrabold text-xs text-slate-900 dark:text-white">Tendances</h3>
 
             <div class="space-y-3">
               <%= for {trend, index} <- Enum.with_index(@trends, 1) do %>
                 <div class="flex items-center justify-between">
                   <div class="flex items-center gap-3">
-                    <span class="w-5 h-5 rounded-full bg-slate-100 text-slate-600 text-[10px] font-bold flex items-center justify-center">{index}</span>
+                    <span class="w-5 h-5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-[10px] font-bold flex items-center justify-center">{index}</span>
                     <div>
-                      <p class="font-bold text-xs text-slate-800 leading-none">{trend.title}</p>
-                      <p class="text-[10px] text-slate-400 mt-1">{trend.count}</p>
+                      <p class="font-bold text-xs text-slate-800 dark:text-slate-200 leading-none">{trend.title}</p>
+                      <p class="text-[10px] text-slate-400 dark:text-slate-500 mt-1">{trend.count}</p>
                     </div>
                   </div>
                 </div>
               <% end %>
             </div>
 
-            <a href="#" class="block text-center text-xs font-bold text-indigo-600 hover:underline pt-2 border-t border-slate-100">
+            <a href="#" class="block text-center text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline pt-2 border-t border-slate-100 dark:border-slate-800">
               Voir toutes les tendances →
             </a>
           </div>
 
           <!-- SUJETS POPULAIRES -->
-          <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs space-y-4">
-            <h3 class="font-extrabold text-xs text-slate-900">Sujets populaires</h3>
+          <div class="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-5 shadow-xs space-y-4">
+            <h3 class="font-extrabold text-xs text-slate-900 dark:text-white">Sujets populaires</h3>
 
             <div class="flex flex-wrap gap-1.5">
               <%= for subject <- @subjects do %>
-                <span class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-medium transition-colors cursor-pointer">
+                <span class="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-xl text-xs font-medium transition-colors cursor-pointer">
                   #{subject}
                 </span>
               <% end %>
             </div>
 
-            <a href="#" class="block text-center text-xs font-bold text-indigo-600 hover:underline pt-2 border-t border-slate-100">
+            <a href="#" class="block text-center text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline pt-2 border-t border-slate-100 dark:border-slate-800">
               Voir plus de sujets →
             </a>
           </div>
 
           <!-- PERSONNES À SUIVRE -->
-          <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs space-y-4">
-            <h3 class="font-extrabold text-xs text-slate-900">Personnes à suivre</h3>
+          <div class="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-5 shadow-xs space-y-4">
+            <h3 class="font-extrabold text-xs text-slate-900 dark:text-white">Personnes à suivre</h3>
 
             <div class="space-y-3">
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-2.5">
                   <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" class="w-9 h-9 rounded-full object-cover" />
                   <div>
-                    <p class="font-bold text-xs text-slate-800 leading-none">M. Franck T.</p>
-                    <p class="text-[10px] text-slate-400 mt-0.5">Répétiteur en Mathématiques</p>
+                    <p class="font-bold text-xs text-slate-800 dark:text-slate-200 leading-none">M. Franck T.</p>
+                    <p class="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5">Répétiteur en Mathématiques</p>
                   </div>
                 </div>
-                <button class="px-3 py-1 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 font-semibold text-xs rounded-xl transition-colors cursor-pointer">
+                <button class="px-3 py-1 bg-indigo-50 dark:bg-indigo-950/50 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 font-semibold text-xs rounded-xl transition-colors cursor-pointer">
                   Suivre
                 </button>
               </div>
@@ -299,11 +299,11 @@ defmodule RepetoWeb.ExplorerLive do
                 <div class="flex items-center gap-2.5">
                   <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100" class="w-9 h-9 rounded-full object-cover" />
                   <div>
-                    <p class="font-bold text-xs text-slate-800 leading-none">Mme. Sarah K.</p>
-                    <p class="text-[10px] text-slate-400 mt-0.5">Répétitrice en Mathématiques</p>
+                    <p class="font-bold text-xs text-slate-800 dark:text-slate-200 leading-none">Mme. Sarah K.</p>
+                    <p class="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5">Répétitrice en Mathématiques</p>
                   </div>
                 </div>
-                <button class="px-3 py-1 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 font-semibold text-xs rounded-xl transition-colors cursor-pointer">
+                <button class="px-3 py-1 bg-indigo-50 dark:bg-indigo-950/50 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 font-semibold text-xs rounded-xl transition-colors cursor-pointer">
                   Suivre
                 </button>
               </div>
@@ -312,26 +312,26 @@ defmodule RepetoWeb.ExplorerLive do
                 <div class="flex items-center gap-2.5">
                   <div class="w-9 h-9 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold text-xs">R</div>
                   <div>
-                    <p class="font-bold text-xs text-slate-800 leading-none">Repeto Officiel</p>
-                    <p class="text-[10px] text-slate-400 mt-0.5">Actualités & conseils</p>
+                    <p class="font-bold text-xs text-slate-800 dark:text-slate-200 leading-none">Repeto Officiel</p>
+                    <p class="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5">Actualités & conseils</p>
                   </div>
                 </div>
-                <button class="px-3 py-1 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 font-semibold text-xs rounded-xl transition-colors cursor-pointer">
+                <button class="px-3 py-1 bg-indigo-50 dark:bg-indigo-950/50 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 font-semibold text-xs rounded-xl transition-colors cursor-pointer">
                   Suivre
                 </button>
               </div>
             </div>
 
-            <a href="#" class="block text-center text-xs font-bold text-indigo-600 hover:underline pt-2 border-t border-slate-100">
+            <a href="#" class="block text-center text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline pt-2 border-t border-slate-100 dark:border-slate-800">
               Voir toutes les recommandations →
             </a>
           </div>
 
           <!-- BANNIÈRE DEVENIR RÉPÉTITEUR -->
-          <div class="bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100 rounded-2xl p-5 space-y-4 relative overflow-hidden">
+          <div class="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950/40 dark:to-purple-950/40 border border-indigo-100 dark:border-indigo-900/50 rounded-2xl p-5 space-y-4 relative overflow-hidden">
             <div>
-              <h4 class="font-black text-xs text-indigo-900">Vous êtes répétiteur ?</h4>
-              <p class="text-[11px] text-slate-600 mt-1 leading-relaxed">Développez votre activité, trouvez plus d'élèves et gagnez en visibilité.</p>
+              <h4 class="font-black text-xs text-indigo-900 dark:text-indigo-200">Vous êtes répétiteur ?</h4>
+              <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">Développez votre activité, trouvez plus d'élèves et gagnez en visibilité.</p>
             </div>
             <button class="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs rounded-xl transition-colors shadow-sm cursor-pointer">
               Créer mon profil

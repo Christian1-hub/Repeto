@@ -100,7 +100,7 @@ defmodule RepetoWeb.CommunauteLive do
         title: "Comprendre les fonctions de référence : mémo visuel",
         content: "Voici un récapitulatif graphique indispensable pour visualiser rapidement l'allure des courbes de référence (parabole, hyperbole, racine carrée).",
         image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&auto=format&fit=crop&q=80",
-        attachment: %{title: "Fiche_Methodo_Fonctions.pdf", type: "PDF • 4.2 Mo", color: "text-rose-500", bg: "bg-rose-50"},
+        attachment: %{title: "Fiche_Methodo_Fonctions.pdf", type: "PDF • 4.2 Mo", color: "text-rose-500", bg: "bg-rose-50 dark:bg-rose-950/50"},
         likes: "1 248",
         comments: "127",
         shares: "356"
@@ -168,66 +168,65 @@ defmodule RepetoWeb.CommunauteLive do
   def render(assigns) do
     ~H"""
     <Layouts.app flash={@flash} current_scope={assigns[:current_scope]} active_nav={@active_nav}>
-      <div class="space-y-6 pb-12">
+      <div class="space-y-6 pb-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <!-- Bouton de retour vers la liste des communautés -->
         <div>
-          <.link navigate={~p"/communautes"} class="inline-flex items-center gap-2 px-3.5 py-2 bg-white hover:bg-slate-50 border border-slate-200/80 rounded-xl text-xs font-bold text-slate-700 transition-colors shadow-xs cursor-pointer">
-            <.icon name="hero-arrow-left" class="w-4 h-4 text-slate-500" />
+          <.link navigate={~p"/communautes"} class="inline-flex items-center gap-2 px-3.5 py-2 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-200/80 dark:border-slate-800 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 transition-colors shadow-xs cursor-pointer">
+            <.icon name="hero-arrow-left" class="w-4 h-4 text-slate-500 dark:text-slate-400" />
             <span>Retour aux communautés</span>
           </.link>
         </div>
 
-      <div class="bg-white border border-slate-200/80 rounded-3xl overflow-hidden shadow-xs">
+      <div class="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-3xl overflow-hidden shadow-xs">
         <div class="relative h-48 sm:h-64 overflow-hidden">
           <img src={@community.banner} class="w-full h-full object-cover" />
           <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent"></div>
         </div>
 
-        <div class="px-6 sm:px-8 pb-6 pt-0 relative">
+        <div class="px-4 sm:px-8 pb-6 pt-0 relative">
           <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 -mt-12 sm:-mt-14 mb-4">
             <div class="flex items-end gap-4">
-              <img src={@community.avatar} class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl object-cover ring-4 ring-white shadow-md bg-indigo-900" />
+              <img src={@community.avatar} class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl object-cover ring-4 ring-white dark:ring-slate-900 shadow-md bg-indigo-900" />
               <div class="mb-1">
-                <div class="flex items-center gap-1.5">
-                  <h1 class="text-xl sm:text-2xl font-black text-slate-900">{@community.name}</h1>
-                  <.icon name="hero-check-badge" class="w-5 h-5 text-indigo-600" />
+                <div class="flex items-center gap-1.5 flex-wrap">
+                  <h1 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">{@community.name}</h1>
+                  <.icon name="hero-check-badge" class="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                 </div>
-                <p class="text-xs text-slate-500 font-medium mt-0.5">{@community.badge}</p>
+                <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mt-0.5">{@community.badge}</p>
               </div>
             </div>
 
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-2 flex-wrap sm:flex-nowrap">
               <button class="flex items-center gap-2 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-xl transition-colors shadow-sm cursor-pointer">
                 <.icon name="hero-check" class="w-4 h-4" />
                 <span>Membre</span>
               </button>
-              <button class="p-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl transition-colors cursor-pointer">
+              <button class="p-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-xl transition-colors cursor-pointer">
                 <.icon name="hero-bell" class="w-4 h-4" />
               </button>
-              <button class="p-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl transition-colors cursor-pointer">
+              <button class="p-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-xl transition-colors cursor-pointer">
                 <.icon name="hero-ellipsis-horizontal" class="w-4 h-4" />
               </button>
             </div>
           </div>
 
-          <div class="flex flex-wrap items-center gap-4 text-xs text-slate-500 pt-2 border-t border-slate-100">
+          <div class="flex flex-wrap items-center gap-4 text-xs text-slate-500 dark:text-slate-400 pt-2 border-t border-slate-100 dark:border-slate-800">
             <span class="flex items-center gap-1.5 font-medium">
-              <.icon name="hero-user-group" class="w-4 h-4 text-slate-400" />
+              <.icon name="hero-user-group" class="w-4 h-4 text-slate-400 dark:text-slate-500" />
               {@community.members_count}
             </span>
             <span class="flex items-center gap-1.5 font-medium">
-              <.icon name="hero-globe-alt" class="w-4 h-4 text-slate-400" />
+              <.icon name="hero-globe-alt" class="w-4 h-4 text-slate-400 dark:text-slate-500" />
               {@community.type}
             </span>
             <span class="flex items-center gap-1.5 font-medium">
-              <.icon name="hero-shield-check" class="w-4 h-4 text-slate-400" />
+              <.icon name="hero-shield-check" class="w-4 h-4 text-slate-400 dark:text-slate-500" />
               {@community.created_by}
             </span>
-
           </div>
 
-          <div class="flex items-center gap-1 sm:gap-6 overflow-x-auto pt-6 border-t border-slate-100 mt-4 scrollbar-none">
+          <div class="flex items-center gap-1 sm:gap-6 overflow-x-auto pt-6 border-t border-slate-100 dark:border-slate-800 mt-4 scrollbar-none">
             <% tabs = [
               %{id: :discussions, label: "Discussions", icon: "hero-chat-bubble-left-right"},
               %{id: :ressources, label: "Ressources", icon: "hero-document-text"},
@@ -245,8 +244,8 @@ defmodule RepetoWeb.CommunauteLive do
                 class={[
                   "flex items-center gap-2 pb-3 px-2 text-xs font-bold transition-colors border-b-2 whitespace-nowrap cursor-pointer",
                   @active_tab == tab.id
-                    && "border-indigo-600 text-indigo-600"
-                    || "border-transparent text-slate-500 hover:text-slate-800"
+                    && "border-indigo-600 dark:border-indigo-400 text-indigo-600 dark:text-indigo-400"
+                    || "border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200"
                 ]}
               >
                 <.icon name={tab.icon} class="w-4 h-4" />
@@ -261,7 +260,7 @@ defmodule RepetoWeb.CommunauteLive do
 
         <div class="lg:col-span-2 space-y-6">
 
-          <div class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs space-y-4">
+          <div class="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-4 shadow-xs space-y-4">
             <div class="flex items-center gap-3">
               <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100" class="w-10 h-10 rounded-full object-cover" />
               <input
@@ -270,25 +269,25 @@ defmodule RepetoWeb.CommunauteLive do
                 phx-keyup="update_post"
                 name="post_content"
                 placeholder="Écrivez une publication dans Mathématiques..."
-                class="w-full bg-slate-100/80 border border-slate-200/80 rounded-full px-4 py-2.5 text-xs text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:bg-white transition-all"
+                class="w-full bg-slate-100/80 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 rounded-full px-4 py-2.5 text-xs text-slate-700 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:bg-white dark:focus:bg-slate-900 transition-all"
               />
             </div>
 
-            <div class="flex items-center justify-between pt-2 border-t border-slate-100">
-              <div class="flex items-center gap-1 sm:gap-2">
-                <button class="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-[11px] font-semibold transition-colors cursor-pointer">
-                  <.icon name="hero-photo" class="w-4 h-4 text-indigo-600" />
+            <div class="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-800 flex-wrap gap-2">
+              <div class="flex items-center gap-1 sm:gap-2 flex-wrap">
+                <button class="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-xl text-[11px] font-semibold transition-colors cursor-pointer">
+                  <.icon name="hero-photo" class="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
                   <span>Image</span>
                 </button>
-                <button class="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-[11px] font-semibold transition-colors cursor-pointer">
+                <button class="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-xl text-[11px] font-semibold transition-colors cursor-pointer">
                   <.icon name="hero-document-text" class="w-4 h-4 text-rose-500" />
                   <span>Fichier PDF</span>
                 </button>
-                <button class="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-[11px] font-semibold transition-colors cursor-pointer hidden sm:flex">
+                <button class="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-xl text-[11px] font-semibold transition-colors cursor-pointer hidden sm:flex">
                   <.icon name="hero-chart-bar" class="w-4 h-4 text-amber-500" />
                   <span>Sondage</span>
                 </button>
-                <button class="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-[11px] font-semibold transition-colors cursor-pointer hidden sm:flex">
+                <button class="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-xl text-[11px] font-semibold transition-colors cursor-pointer hidden sm:flex">
                   <.icon name="hero-calculator" class="w-4 h-4 text-emerald-500" />
                   <span>Équation</span>
                 </button>
@@ -301,8 +300,8 @@ defmodule RepetoWeb.CommunauteLive do
           </div>
 
           <div class="flex items-center justify-between">
-            <h2 class="font-extrabold text-sm sm:text-base text-slate-900">Publications</h2>
-            <div class="flex items-center gap-2 bg-white border border-slate-200/80 px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-700 cursor-pointer shadow-xs">
+            <h2 class="font-extrabold text-sm sm:text-base text-slate-900 dark:text-white">Publications</h2>
+            <div class="flex items-center gap-2 bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-300 cursor-pointer shadow-xs">
               <span>Plus récentes</span>
               <.icon name="hero-chevron-down" class="w-3.5 h-3.5 text-slate-400" />
             </div>
@@ -310,34 +309,34 @@ defmodule RepetoWeb.CommunauteLive do
 
           <div class="space-y-4">
             <%= for post <- @posts do %>
-              <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs space-y-4">
+              <div class="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-5 shadow-xs space-y-4">
 
                 <div class="flex items-start justify-between">
                   <div class="flex items-center gap-3">
                     <img src={post.avatar} class="w-10 h-10 rounded-full object-cover" />
                     <div>
-                      <div class="flex items-center gap-1.5">
-                        <span class="font-bold text-xs text-slate-900">{post.author}</span>
+                      <div class="flex items-center gap-1.5 flex-wrap">
+                        <span class="font-bold text-xs text-slate-900 dark:text-white">{post.author}</span>
                         <%= if post.verified do %>
-                          <.icon name="hero-check-badge" class="w-4 h-4 text-indigo-600" />
+                          <.icon name="hero-check-badge" class="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
                         <% end %>
-                        <span class="px-2 py-0.5 bg-indigo-50 text-indigo-600 text-[10px] font-bold rounded-md">{post.role}</span>
+                        <span class="px-2 py-0.5 bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 text-[10px] font-bold rounded-md">{post.role}</span>
                       </div>
-                      <p class="text-[10px] text-slate-400 mt-0.5">{post.time}</p>
+                      <p class="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5">{post.time}</p>
                     </div>
                   </div>
-                  <.icon name="hero-ellipsis-horizontal" class="w-4 h-4 text-slate-400 cursor-pointer" />
+                  <.icon name="hero-ellipsis-horizontal" class="w-4 h-4 text-slate-400 dark:text-slate-500 cursor-pointer" />
                 </div>
 
                 <div class="space-y-2">
                   <%= if post.title do %>
-                    <h3 class="font-bold text-xs sm:text-sm text-slate-900">{post.title}</h3>
+                    <h3 class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white">{post.title}</h3>
                   <% end %>
-                  <p class="text-xs text-slate-700 whitespace-pre-line leading-relaxed">{post.content}</p>
+                  <p class="text-xs text-slate-700 dark:text-slate-300 whitespace-pre-line leading-relaxed">{post.content}</p>
                 </div>
 
                 <%= if post.type == :video_post do %>
-                  <div class="rounded-2xl overflow-hidden border border-slate-200/80 bg-slate-900 shadow-sm">
+                  <div class="rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-800 bg-slate-900 shadow-sm">
                     <%= if @playing_video_id == post.video_id do %>
                       <div class="relative w-full h-64 sm:h-72 bg-black">
                         <iframe
@@ -359,7 +358,7 @@ defmodule RepetoWeb.CommunauteLive do
                           </div>
                         </div>
 
-                        <div class="absolute bottom-0 inset-x-0 p-4 flex items-center justify-between text-white">
+                        <div class="absolute bottom-0 inset-x-0 p-4 flex items-center justify-between text-white gap-2">
                           <div class="space-y-0.5">
                             <p class="font-bold text-xs sm:text-sm line-clamp-1">{post.video_title}</p>
                             <p class="text-[11px] text-slate-300 font-medium">Par {post.video_channel} • Regarder directement ici</p>
@@ -376,7 +375,7 @@ defmodule RepetoWeb.CommunauteLive do
                 <%= if Map.get(post, :images) && post.images do %>
                   <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <%= for img <- post.images do %>
-                      <div class="rounded-2xl overflow-hidden border border-slate-200/80 h-48 bg-slate-100">
+                      <div class="rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-800 h-48 bg-slate-100 dark:bg-slate-800">
                         <img src={img} class="w-full h-full object-cover hover:scale-102 transition-transform duration-300 cursor-pointer" />
                       </div>
                     <% end %>
@@ -384,7 +383,7 @@ defmodule RepetoWeb.CommunauteLive do
                 <% end %>
 
                 <%= if Map.get(post, :image) && post.image do %>
-                  <div class="rounded-2xl overflow-hidden border border-slate-200/80 max-h-80 bg-slate-100">
+                  <div class="rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-800 max-h-80 bg-slate-100 dark:bg-slate-800">
                     <img src={post.image} class="w-full h-full object-cover hover:scale-102 transition-transform duration-300 cursor-pointer" />
                   </div>
                 <% end %>
@@ -392,34 +391,34 @@ defmodule RepetoWeb.CommunauteLive do
                 <%= if post.type == :quiz do %>
                   <div class="space-y-2 pt-1">
                     <%= for opt <- post.options do %>
-                      <div class="w-full text-left p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-indigo-50/50 hover:border-indigo-300 transition-all flex items-center justify-between text-xs font-semibold text-slate-700 cursor-pointer">
+                      <div class="w-full text-left p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50 hover:bg-indigo-50/50 dark:hover:bg-indigo-950/30 hover:border-indigo-300 dark:hover:border-indigo-800 transition-all flex items-center justify-between text-xs font-semibold text-slate-700 dark:text-slate-300 cursor-pointer">
                         <span>{opt.text}</span>
-                        <span class="text-xs font-bold text-indigo-600 bg-white px-2.5 py-1 rounded-lg border border-slate-200 shadow-2xs">{opt.votes}</span>
+                        <span class="text-xs font-bold text-indigo-600 dark:text-indigo-400 bg-white dark:bg-slate-900 px-2.5 py-1 rounded-lg border border-slate-200 dark:border-slate-800 shadow-2xs">{opt.votes}</span>
                       </div>
                     <% end %>
                   </div>
                 <% end %>
 
                 <%= if Map.get(post, :attachment) && post.attachment do %>
-                  <div class="border border-slate-200/80 rounded-xl p-3.5 bg-slate-50 flex items-center gap-3 hover:bg-slate-100 transition-colors cursor-pointer">
+                  <div class="border border-slate-200/80 dark:border-slate-800 rounded-xl p-3.5 bg-slate-50 dark:bg-slate-800/50 flex items-center gap-3 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer">
                     <div class={"w-10 h-10 #{post.attachment.bg} #{post.attachment.color} rounded-xl flex items-center justify-center shrink-0 font-bold"}>
                       <.icon name="hero-document-text" class="w-5 h-5" />
                     </div>
                     <div class="space-y-0.5">
-                      <p class="font-bold text-xs text-slate-900">{post.attachment.title}</p>
-                      <p class="text-[10px] text-slate-500 font-semibold">{post.attachment.type}</p>
+                      <p class="font-bold text-xs text-slate-900 dark:text-white">{post.attachment.title}</p>
+                      <p class="text-[10px] text-slate-500 dark:text-slate-400 font-semibold">{post.attachment.type}</p>
                     </div>
                   </div>
                 <% end %>
 
-                <div class="flex items-center justify-between pt-3 border-t border-slate-100 text-[11px] text-slate-500">
+                <div class="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800 text-[11px] text-slate-500 dark:text-slate-400 flex-wrap gap-2">
                   <div class="flex items-center gap-2">
                     <div class="flex items-center -space-x-1">
                       <span class="w-5 h-5 bg-rose-500 rounded-full flex items-center justify-center text-[10px] text-white">❤️</span>
                       <span class="w-5 h-5 bg-amber-500 rounded-full flex items-center justify-center text-[10px] text-white">👍</span>
                       <span class="w-5 h-5 bg-orange-500 rounded-full flex items-center justify-center text-[10px] text-white">😲</span>
                     </div>
-                    <span class="font-bold text-slate-700">{post.likes}</span>
+                    <span class="font-bold text-slate-700 dark:text-slate-300">{post.likes}</span>
                   </div>
 
                   <div class="flex items-center gap-4">
@@ -429,7 +428,7 @@ defmodule RepetoWeb.CommunauteLive do
                     <%= if post.shares do %>
                       <span>{post.shares} partages</span>
                     <% end %>
-                    <.icon name="hero-bookmark" class="w-4 h-4 text-slate-400 cursor-pointer hover:text-indigo-600" />
+                    <.icon name="hero-bookmark" class="w-4 h-4 text-slate-400 dark:text-slate-500 cursor-pointer hover:text-indigo-600 dark:hover:text-indigo-400" />
                   </div>
                 </div>
 
@@ -441,76 +440,76 @@ defmodule RepetoWeb.CommunauteLive do
 
         <div class="space-y-6 lg:sticky lg:top-6">
 
-          <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs space-y-4">
+          <div class="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-5 shadow-xs space-y-4">
             <div class="flex items-center justify-between">
-              <h3 class="font-extrabold text-xs text-slate-900">À propos</h3>
-              <.icon name="hero-ellipsis-horizontal" class="w-4 h-4 text-slate-400 cursor-pointer" />
+              <h3 class="font-extrabold text-xs text-slate-900 dark:text-white">À propos</h3>
+              <.icon name="hero-ellipsis-horizontal" class="w-4 h-4 text-slate-400 dark:text-slate-500 cursor-pointer" />
             </div>
 
-            <p class="text-xs text-slate-600 leading-relaxed">{@community.description}</p>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">{@community.description}</p>
 
             <div class="flex flex-wrap gap-1.5 pt-1">
               <%= for tag <- @community.tags do %>
-                <span class="px-2.5 py-1 bg-slate-100 text-slate-600 rounded-lg text-[10px] font-semibold">{tag}</span>
+                <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-lg text-[10px] font-semibold">{tag}</span>
               <% end %>
             </div>
 
-            <div class="grid grid-cols-3 gap-2 pt-3 border-t border-slate-100 text-center">
+            <div class="grid grid-cols-3 gap-2 pt-3 border-t border-slate-100 dark:border-slate-800 text-center">
               <div>
-                <p class="font-black text-xs text-slate-900">{@community.stats.members}</p>
-                <p class="text-[10px] text-slate-400">Membres</p>
+                <p class="font-black text-xs text-slate-900 dark:text-white">{@community.stats.members}</p>
+                <p class="text-[10px] text-slate-400 dark:text-slate-500">Membres</p>
               </div>
               <div>
-                <p class="font-black text-xs text-slate-900">{@community.stats.publications}</p>
-                <p class="text-[10px] text-slate-400">Publications</p>
+                <p class="font-black text-xs text-slate-900 dark:text-white">{@community.stats.publications}</p>
+                <p class="text-[10px] text-slate-400 dark:text-slate-500">Publications</p>
               </div>
               <div>
-                <p class="font-black text-xs text-slate-900">{@community.stats.admins}</p>
-                <p class="text-[10px] text-slate-400">Admins</p>
+                <p class="font-black text-xs text-slate-900 dark:text-white">{@community.stats.admins}</p>
+                <p class="text-[10px] text-slate-400 dark:text-slate-500">Admins</p>
               </div>
             </div>
           </div>
 
-          <div class="bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100 rounded-2xl p-4 flex items-center gap-3.5">
+          <div class="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950/40 dark:to-purple-950/40 border border-indigo-100 dark:border-indigo-900/50 rounded-2xl p-4 flex items-center gap-3.5">
             <div class="w-10 h-10 bg-indigo-600 text-white rounded-xl flex items-center justify-center shrink-0 shadow-sm">
               🏆
             </div>
             <div>
-              <h4 class="font-bold text-xs text-indigo-900">Communauté active</h4>
-              <p class="text-[11px] text-slate-600 mt-0.5">Classée parmi les 3 communautés les plus dynamiques de Repeto.</p>
+              <h4 class="font-bold text-xs text-indigo-900 dark:text-indigo-300">Communauté active</h4>
+              <p class="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5">Classée parmi les 3 communautés les plus dynamiques de Repeto.</p>
             </div>
           </div>
 
-          <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs space-y-4">
+          <div class="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-5 shadow-xs space-y-4">
             <div class="flex items-center justify-between">
-              <h3 class="font-extrabold text-xs text-slate-900">Ressources populaires</h3>
-              <a href="#" class="text-xs font-bold text-indigo-600 hover:underline">Voir tout</a>
+              <h3 class="font-extrabold text-xs text-slate-900 dark:text-white">Ressources populaires</h3>
+              <a href="#" class="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline">Voir tout</a>
             </div>
 
             <div class="space-y-3">
               <%= for res <- @resources do %>
-                <div class="space-y-1 pb-3 border-b border-slate-100 last:border-0 last:pb-0">
-                  <h4 class="font-bold text-xs text-slate-900 leading-snug hover:text-indigo-600 cursor-pointer">{res.title}</h4>
-                  <div class="flex items-center justify-between text-[10px] text-slate-400">
+                <div class="space-y-1 pb-3 border-b border-slate-100 dark:border-slate-800 last:border-0 last:pb-0">
+                  <h4 class="font-bold text-xs text-slate-900 dark:text-white leading-snug hover:text-indigo-600 dark:hover:text-indigo-400 cursor-pointer">{res.title}</h4>
+                  <div class="flex items-center justify-between text-[10px] text-slate-400 dark:text-slate-500">
                     <span>{res.author}</span>
-                    <span class="text-indigo-600 font-semibold">{res.downloads}</span>
+                    <span class="text-indigo-600 dark:text-indigo-400 font-semibold">{res.downloads}</span>
                   </div>
                 </div>
               <% end %>
             </div>
           </div>
 
-          <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs space-y-4">
+          <div class="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-5 shadow-xs space-y-4">
             <div class="flex items-center justify-between">
-              <h3 class="font-extrabold text-xs text-slate-900">Membres en ligne</h3>
-              <a href="#" class="text-xs font-bold text-indigo-600 hover:underline">Voir tout</a>
+              <h3 class="font-extrabold text-xs text-slate-900 dark:text-white">Membres en ligne</h3>
+              <a href="#" class="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline">Voir tout</a>
             </div>
 
             <div class="flex items-center -space-x-2 overflow-hidden py-1">
               <%= for avatar <- @online_members do %>
-                <img src={avatar} class="w-9 h-9 rounded-full object-cover ring-2 ring-white" />
+                <img src={avatar} class="w-9 h-9 rounded-full object-cover ring-2 ring-white dark:ring-slate-900" />
               <% end %>
-              <div class="w-9 h-9 rounded-full bg-slate-100 border border-slate-200 text-[10px] font-bold text-slate-600 flex items-center justify-center ring-2 ring-white">
+              <div class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-[10px] font-bold text-slate-600 dark:text-slate-300 flex items-center justify-center ring-2 ring-white dark:ring-slate-900">
                 +247
               </div>
             </div>
